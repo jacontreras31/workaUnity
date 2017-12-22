@@ -61,7 +61,7 @@ public class menu_script : MonoBehaviour {
             {
                 mousepos1 = Input.mousePosition;
                 Debug.Log(mousepos1.x);
-                if (mousepos1.x < 230 && mousepos1.x >160)
+                if (mousepos1.x >160)
                 {
                     Debug.Log("2");
                     triggermouse2 = true;
