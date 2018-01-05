@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scenes/log in.unity
+- path: Assets/scenes/calendar.unity
   isLoaded: 1
   isActive: 1
