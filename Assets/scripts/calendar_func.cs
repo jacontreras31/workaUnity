@@ -4,21 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
 
-public class calendar_func : MonoBehaviour {
+public class calendar_func : MonoBehaviour
+{
 
-    public Text mes_text, año_text;
+    public Text mes_text, año_text, holo_text;
     string diasemana;
-    int año,diasemanaint, diasemanaint2,Element, diamesint, mes_tipo, d, m, a, c, premax, mesmax;
-    public Button boton;
+    int año, diasemanaint, diasemanaint2, Element, diamesint, mes_tipo, d, m, a, c, premax, mesmax, cuartaparte;
+    public Button boton_holo;
     public Dias[] dia;
     public Image Pendientes_del_dia;
     public Button Cerrar_pendiente;
 
 
     // Use this for initialization
-    void Start () {
-        mesmax = 18 / 4;
-        Debug.Log(mesmax);
+    void Start()
+    {
         m = System.DateTime.Now.Month;
         año = System.DateTime.Now.Year;
         StartCoroutine("calcular_primer_dia", System.DateTime.Now.Year);
@@ -91,10 +91,11 @@ public class calendar_func : MonoBehaviour {
         StartCoroutine("llenar_dias");
     }
 
-	
-	// Update is called once per frame
-	void Update () {
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
 
     //Funciones de los botones
     public void Boton_derecha()
@@ -105,7 +106,7 @@ public class calendar_func : MonoBehaviour {
                 premax = 31;
                 mesmax = 31;
                 mes_text.text = "Febrero";
-                m = 1;
+                m = 2;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
@@ -113,7 +114,7 @@ public class calendar_func : MonoBehaviour {
                 premax = 31;
                 mesmax = 28;
                 mes_text.text = "Marzo";
-                m = 2;
+                m = 3;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
@@ -121,7 +122,7 @@ public class calendar_func : MonoBehaviour {
                 premax = 28;
                 mesmax = 31;
                 mes_text.text = "Abril";
-                m = 3;
+                m = 4;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
@@ -129,7 +130,7 @@ public class calendar_func : MonoBehaviour {
                 premax = 31;
                 mesmax = 30;
                 mes_text.text = "Mayo";
-                m = 4;
+                m = 5;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
@@ -137,7 +138,7 @@ public class calendar_func : MonoBehaviour {
                 premax = 30;
                 mesmax = 31;
                 mes_text.text = "Junio";
-                m = 5;
+                m = 6;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
@@ -145,7 +146,7 @@ public class calendar_func : MonoBehaviour {
                 premax = 31;
                 mesmax = 30;
                 mes_text.text = "Julio";
-                m = 6;
+                m = 7;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
@@ -153,7 +154,7 @@ public class calendar_func : MonoBehaviour {
                 premax = 30;
                 mesmax = 31;
                 mes_text.text = "Agosto";
-                m = 7;
+                m = 8;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
@@ -161,7 +162,7 @@ public class calendar_func : MonoBehaviour {
                 premax = 31;
                 mesmax = 31;
                 mes_text.text = "Septiembre";
-                m = 8;
+                m = 9;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
@@ -169,7 +170,7 @@ public class calendar_func : MonoBehaviour {
                 premax = 31;
                 mesmax = 30;
                 mes_text.text = "Octubre";
-                m = 9;
+                m = 10;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
@@ -177,7 +178,7 @@ public class calendar_func : MonoBehaviour {
                 premax = 30;
                 mesmax = 31;
                 mes_text.text = "Noviembre";
-                m = 10;
+                m = 11;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
@@ -185,7 +186,7 @@ public class calendar_func : MonoBehaviour {
                 premax = 31;
                 mesmax = 30;
                 mes_text.text = "Diciembre";
-                m = 11;
+                m = 12;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
@@ -193,7 +194,7 @@ public class calendar_func : MonoBehaviour {
                 premax = 30;
                 mesmax = 31;
                 mes_text.text = "Enero";
-                m = 12;
+                m = 1;
                 if (año > System.DateTime.Now.Year)
                 {
                     año = año + 1;
@@ -263,7 +264,7 @@ public class calendar_func : MonoBehaviour {
     }
 
     //abrir-cerrar popup "pendientes"
-    public void Boton_dia_pendientes ()
+    public void Boton_dia_pendientes()
     {
         Pendientes_del_dia.gameObject.SetActive(true);
         Cerrar_pendiente.gameObject.SetActive(true);
@@ -276,8 +277,32 @@ public class calendar_func : MonoBehaviour {
 
     //Llenar_botones
     //este void llenar dia utilizara las variables que llenara primeramente el void calculo
-    void llenar_dias ()
+    void llenar_dias()
     {
+        switch (diasemanaint)
+        {
+            case 0:
+                diasemanaint = 6;
+                break;
+            case 1:
+                diasemanaint = 0;
+                break;
+            case 2:
+                diasemanaint = 1;
+                break;
+            case 3:
+                diasemanaint = 2;
+                break;
+            case 4:
+                diasemanaint = 3;
+                break;
+            case 5:
+                diasemanaint= 4;
+                break;
+            case 6:
+                diasemanaint = 5;
+                break;  
+        }
 
         switch (diasemanaint)
         {
@@ -293,7 +318,7 @@ public class calendar_func : MonoBehaviour {
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                mesmax = mesmax + 1;
+                mesmax = mesmax + 2;
                 while (Element < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
@@ -306,20 +331,20 @@ public class calendar_func : MonoBehaviour {
                 diasemanaint2 = diasemanaint - 1;
                 diamesint = premax - diasemanaint2;
                 while (Element < diasemanaint)
-                    {
+                {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.grey;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
-                    }
-                    diamesint = 1;
-                mesmax = mesmax + 1;
+                }
+                diamesint = 1;
+                mesmax = mesmax + 2;
                 while (Element < mesmax)
-                    {
+                {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
-                    }
+                }
                 break;
             case 2:
                 Element = 0;
@@ -333,7 +358,7 @@ public class calendar_func : MonoBehaviour {
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                mesmax = mesmax + 1;
+                mesmax = mesmax + 2;
                 while (Element < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
@@ -353,7 +378,7 @@ public class calendar_func : MonoBehaviour {
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                mesmax = mesmax + 1;
+                mesmax = mesmax + 2;
                 while (Element < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
@@ -373,7 +398,7 @@ public class calendar_func : MonoBehaviour {
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                mesmax = mesmax + 1;
+                mesmax = mesmax + 2;
                 while (Element < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
@@ -393,7 +418,7 @@ public class calendar_func : MonoBehaviour {
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                mesmax = mesmax + 1;
+                mesmax = mesmax + 2;
                 while (Element < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
@@ -413,7 +438,7 @@ public class calendar_func : MonoBehaviour {
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                mesmax = mesmax + 1;
+                mesmax = mesmax + 2;
                 while (Element < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
@@ -425,62 +450,63 @@ public class calendar_func : MonoBehaviour {
     }
     //necesitamos 3 variables 
     //dia, año y mes
-    //Dia = 1 (siempre), año 2017, diciembre
-    // A = 2017- 2000
-    //C = 
-    
-    void calcular_primer_dia(int AA )
+    //Dia = 1 (siempre)
+    // A = 2018- 2000
+    //C = 20 (por ahora que sirva del 2000 pa lante)
+
+    void calcular_primer_dia(int AA)
     {
         switch (m)
         {
             case 1:
-                m = 11;
-                break;
-            case 2:
-                m = 12;
-                break;
-            case 3:
                 m = 1;
                 break;
-            case 4:
-                m = 2;
-                break;
-            case 5:
-                m = 3;
-                break;
-            case 6:
+            case 2:
                 m = 4;
                 break;
-            case 7:
+            case 3:
+                m = 4;
+                break;
+            case 4:
+                m = 0;
+                break;
+            case 5:
+                m = 2;
+                break;
+            case 6:
                 m = 5;
                 break;
+            case 7:
+                m = 0;
+                break;
             case 8:
-                m = 6;
+                m = 3;
                 break;
             case 9:
-                m = 7;
+                m = 6;
                 break;
             case 10:
-                m = 8;
+                m = 1;
                 break;
             case 11:
-                m = 9;
+                m = 4;
                 break;
             case 12:
-                m = 10;
+                m = 6;
                 break;
         }
-d = 1;
+        d = 1;
         a = AA - 2000;
-        c = 20;
-        diasemanaint = (d + (((13*m) - 1) / 5) + a +(a / 4) + (c / 4) - 2*c) % 7;
+        c = 6;
+        cuartaparte = a / 4;
+        diasemanaint = (c + a + cuartaparte +  d + m) % 7;
         Debug.Log("diasemanaint" + diasemanaint);
         Debug.Log("a" + a);
         Debug.Log("D" + d);
         Debug.Log("M" + m);
         Debug.Log("C" + c);
+
     }
-       
 }
 
 [System.Serializable]
