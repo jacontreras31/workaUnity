@@ -9,7 +9,8 @@ public class calendar_func : MonoBehaviour
 
     public Text mes_text, año_text, holo_text;
     string diasemana;
-    int año, diasemanaint, diasemanaint2, Element, diamesint, mes_tipo, d, m, a, c, premax, mesmax, cuartaparte;
+    int año, diasemanaint, diasemanaint2, Element, diamesint, mes_tipo, d, m, a, c, premax, mesmax, 
+        cuartaparte, bisiesto, bisiesto2;
     public Button boton_holo;
     public Dias[] dia;
     public Image Pendientes_del_dia;
@@ -451,18 +452,48 @@ public class calendar_func : MonoBehaviour
     //necesitamos 3 variables 
     //dia, año y mes
     //Dia = 1 (siempre)
-    // A = 2018- 2000
-    //C = 20 (por ahora que sirva del 2000 pa lante)
-
+    // A = El año - 2000
+    //C = 6 (por ahora que sirva del 2000 pa lante)
+    //Este void y los cases de los botones llenan las variables que utiliza la funcion que llena los dias,
+    //Este void solo calcula que dia de la semana cae el primer dia de cada mes de cada año
     void calcular_primer_dia(int AA)
     {
         switch (m)
         {
             case 1:
                 m = 1;
+
+                bisiesto = AA % 400;
+                if(bisiesto == 0)
+                {
+                    m = 0;
+                }
+                else
+                { bisiesto = AA % 4;
+                  bisiesto2 = AA % 100;
+                    if(bisiesto == 0 && bisiesto2 != 0)
+                    {
+                        m = 0;
+                    }
+                }   
                 break;
             case 2:
                 m = 4;
+
+                bisiesto = AA % 400;
+                if (bisiesto == 0)
+                {
+                    m = 3;
+                }
+                else
+                {
+                    bisiesto = AA % 4;
+                    bisiesto2 = AA % 100;
+                    if (bisiesto == 0 && bisiesto2 != 0)
+                    {
+                        m = 3;
+                    }
+                }
                 break;
             case 3:
                 m = 4;
@@ -496,8 +527,8 @@ public class calendar_func : MonoBehaviour
                 break;
         }
         d = 1;
-        a = AA - 2000;
         c = 6;
+        a = AA - 2000;
         cuartaparte = a / 4;
         diasemanaint = (c + a + cuartaparte +  d + m) % 7;
         Debug.Log("diasemanaint" + diasemanaint);
