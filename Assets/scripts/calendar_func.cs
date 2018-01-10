@@ -37,6 +37,20 @@ public class calendar_func : MonoBehaviour
                 premax = 31;
                 mesmax = 28;
                 mes_text.text = "Febrero";
+                bisiesto = año % 400;
+                if (bisiesto == 0)
+                {
+                    mesmax = 29;
+                }
+                else
+                {
+                    bisiesto = año % 4;
+                    bisiesto2 = año % 100;
+                    if (bisiesto == 0 && bisiesto2 != 0)
+                    {
+                        mesmax = 29;
+                    }
+                }
                 break;
             case "03":
                 premax = 28;
@@ -108,6 +122,20 @@ public class calendar_func : MonoBehaviour
                 premax = 31;
                 mesmax = 28;
                 m = 2;
+                bisiesto = año % 400;
+                if (bisiesto == 0)
+                {
+                    mesmax = 29;
+                }
+                else
+                {
+                    bisiesto = año % 4;
+                    bisiesto2 = año % 100;
+                    if (bisiesto == 0 && bisiesto2 != 0)
+                    {
+                        mesmax = 29;
+                    }
+                }
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
@@ -246,6 +274,20 @@ public class calendar_func : MonoBehaviour
                 premax = 31;
                 mesmax = 28;
                 m = 2;
+                bisiesto = año % 400;
+                if (bisiesto == 0)
+                {
+                    mesmax = 29;
+                }
+                else
+                {
+                    bisiesto = año % 4;
+                    bisiesto2 = año % 100;
+                    if (bisiesto == 0 && bisiesto2 != 0)
+                    {
+                        mesmax = 29;
+                    }
+                }
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
@@ -368,13 +410,6 @@ public class calendar_func : MonoBehaviour
         switch (diasemanaint)
         {
             case 0:
-                dia[0].día.image.color = Color.white;
-                dia[1].día.image.color = Color.white;
-                dia[2].día.image.color = Color.white;
-                dia[3].día.image.color = Color.white;
-                dia[4].día.image.color = Color.white;
-                dia[5].día.image.color = Color.white;
-                dia[6].día.image.color = Color.white;
                 Element = 0;
                 diasemanaint2 = diasemanaint - 1;
                 diamesint = premax - diasemanaint2;
@@ -382,6 +417,7 @@ public class calendar_func : MonoBehaviour
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.grey;
+                    dia[Element].día.interactable = false;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
@@ -390,18 +426,22 @@ public class calendar_func : MonoBehaviour
                 while (diamesint < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
+                    dia[Element].día.image.color = Color.white;
+                    dia[Element].día.interactable = true;
+                    Element = Element + 1;
+                    diamesint = diamesint + 1;
+                }
+                diamesint = 1;
+                while (Element < 40)
+                {
+                    dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
+                    dia[Element].día.image.color = Color.grey;
+                    dia[Element].día.interactable = false;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
                 break;
             case 1:
-                dia[0].día.image.color = Color.white;
-                dia[1].día.image.color = Color.white;
-                dia[2].día.image.color = Color.white;
-                dia[3].día.image.color = Color.white;
-                dia[4].día.image.color = Color.white;
-                dia[5].día.image.color = Color.white;
-                dia[6].día.image.color = Color.white;
                 Element = 0;
                 diasemanaint2 = diasemanaint - 1;
                 diamesint = premax - diasemanaint2;
@@ -409,6 +449,7 @@ public class calendar_func : MonoBehaviour
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.grey;
+                    dia[Element].día.interactable = false;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
@@ -417,18 +458,22 @@ public class calendar_func : MonoBehaviour
                 while (diamesint < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
+                    dia[Element].día.image.color = Color.white;
+                    dia[Element].día.interactable = true;
+                    Element = Element + 1;
+                    diamesint = diamesint + 1;
+                }
+                diamesint = 1;
+                while (Element < 40)
+                {
+                    dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
+                    dia[Element].día.image.color = Color.grey;
+                    dia[Element].día.interactable = false;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
                 break;
             case 2:
-                dia[0].día.image.color = Color.white;
-                dia[1].día.image.color = Color.white;
-                dia[2].día.image.color = Color.white;
-                dia[3].día.image.color = Color.white;
-                dia[4].día.image.color = Color.white;
-                dia[5].día.image.color = Color.white;
-                dia[6].día.image.color = Color.white;
                 Element = 0;
                 diasemanaint2 = diasemanaint - 1;
                 diamesint = premax - diasemanaint2;
@@ -436,6 +481,7 @@ public class calendar_func : MonoBehaviour
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.grey;
+                    dia[Element].día.interactable = false;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
@@ -444,18 +490,22 @@ public class calendar_func : MonoBehaviour
                 while (diamesint < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
+                    dia[Element].día.image.color = Color.white;
+                    dia[Element].día.interactable = true;
+                    Element = Element + 1;
+                    diamesint = diamesint + 1;
+                }
+                diamesint = 1;
+                while (Element < 40)
+                {
+                    dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
+                    dia[Element].día.image.color = Color.grey;
+                    dia[Element].día.interactable = false;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
                 break;
             case 3:
-                dia[0].día.image.color = Color.white;
-                dia[1].día.image.color = Color.white;
-                dia[2].día.image.color = Color.white;
-                dia[3].día.image.color = Color.white;
-                dia[4].día.image.color = Color.white;
-                dia[5].día.image.color = Color.white;
-                dia[6].día.image.color = Color.white;
                 Element = 0;
                 diasemanaint2 = diasemanaint - 1;
                 diamesint = premax - diasemanaint2;
@@ -463,6 +513,7 @@ public class calendar_func : MonoBehaviour
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.grey;
+                    dia[Element].día.interactable = false;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
@@ -471,18 +522,22 @@ public class calendar_func : MonoBehaviour
                 while (diamesint < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
+                    dia[Element].día.image.color = Color.white;
+                    dia[Element].día.interactable = true;
+                    Element = Element + 1;
+                    diamesint = diamesint + 1;
+                }
+                diamesint = 1;
+                while (Element < 40)
+                {
+                    dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
+                    dia[Element].día.image.color = Color.grey;
+                    dia[Element].día.interactable = false;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
                 break;
             case 4:
-                dia[0].día.image.color = Color.white;
-                dia[1].día.image.color = Color.white;
-                dia[2].día.image.color = Color.white;
-                dia[3].día.image.color = Color.white;
-                dia[4].día.image.color = Color.white;
-                dia[5].día.image.color = Color.white;
-                dia[6].día.image.color = Color.white;
                 Element = 0;
                 diasemanaint2 = diasemanaint - 1;
                 diamesint = premax - diasemanaint2;
@@ -490,6 +545,7 @@ public class calendar_func : MonoBehaviour
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.grey;
+                    dia[Element].día.interactable = false;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
@@ -498,18 +554,22 @@ public class calendar_func : MonoBehaviour
                 while (diamesint < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
+                    dia[Element].día.image.color = Color.white;
+                    dia[Element].día.interactable = true;
+                    Element = Element + 1;
+                    diamesint = diamesint + 1;
+                }
+                diamesint = 1;
+                while (Element < 40)
+                {
+                    dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
+                    dia[Element].día.image.color = Color.grey;
+                    dia[Element].día.interactable = false;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
                 break;
             case 5:
-                dia[0].día.image.color = Color.white;
-                dia[1].día.image.color = Color.white;
-                dia[2].día.image.color = Color.white;
-                dia[3].día.image.color = Color.white;
-                dia[4].día.image.color = Color.white;
-                dia[5].día.image.color = Color.white;
-                dia[6].día.image.color = Color.white;
                 Element = 0;
                 diasemanaint2 = diasemanaint - 1;
                 diamesint = premax - diasemanaint2;
@@ -517,6 +577,7 @@ public class calendar_func : MonoBehaviour
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.grey;
+                    dia[Element].día.interactable = false;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
@@ -525,18 +586,22 @@ public class calendar_func : MonoBehaviour
                 while (diamesint < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
+                    dia[Element].día.image.color = Color.white;
+                    dia[Element].día.interactable = true;
+                    Element = Element + 1;
+                    diamesint = diamesint + 1;
+                }
+                diamesint = 1;
+                while (Element < 40)
+                {
+                    dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
+                    dia[Element].día.image.color = Color.grey;
+                    dia[Element].día.interactable = false;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
                 break;
             case 6:
-                dia[0].día.image.color = Color.white;
-                dia[1].día.image.color = Color.white;
-                dia[2].día.image.color = Color.white;
-                dia[3].día.image.color = Color.white;
-                dia[4].día.image.color = Color.white;
-                dia[5].día.image.color = Color.white;
-                dia[6].día.image.color = Color.white;
                 Element = 0;
                 diasemanaint2 = diasemanaint - 1;
                 diamesint = premax - diasemanaint2;
@@ -544,6 +609,7 @@ public class calendar_func : MonoBehaviour
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.grey;
+                    dia[Element].día.interactable = false;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
@@ -552,6 +618,17 @@ public class calendar_func : MonoBehaviour
                 while (diamesint < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
+                    dia[Element].día.image.color = Color.white;
+                    dia[Element].día.interactable = true;
+                    Element = Element + 1;
+                    diamesint = diamesint + 1;
+                }
+                diamesint = 1;
+                while (Element < 40)
+                {
+                    dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
+                    dia[Element].día.image.color = Color.grey;
+                    dia[Element].día.interactable = false;
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
@@ -600,7 +677,7 @@ public class calendar_func : MonoBehaviour
                     bisiesto2 = AA % 100;
                     if (bisiesto == 0 && bisiesto2 != 0)
                     {
-                        m = 3;
+                     m = 3;
                     }
                 }
                 break;
