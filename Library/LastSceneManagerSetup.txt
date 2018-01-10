@@ -1,4 +1,4 @@
 sceneSetups:
-- path: C:/Users/Usuario/Documents/Aplicaciones Unity/proyecto-studio-master/Assets/Scenes/In_app.unity
+- path: Assets/scenes/calendar.unity
   isLoaded: 1
   isActive: 1

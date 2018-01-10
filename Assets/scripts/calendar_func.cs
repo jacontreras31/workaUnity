@@ -104,95 +104,95 @@ public class calendar_func : MonoBehaviour
         switch (mes_text.text)
         {
             case "Enero":
-                premax = 31;
-                mesmax = 31;
                 mes_text.text = "Febrero";
+                premax = 31;
+                mesmax = 28;
                 m = 2;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
             case "Febrero":
-                premax = 31;
-                mesmax = 28;
                 mes_text.text = "Marzo";
+                premax = 28;
+                mesmax = 31;
                 m = 3;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
             case "Marzo":
-                premax = 28;
-                mesmax = 31;
                 mes_text.text = "Abril";
+                premax = 31;
+                mesmax = 30;
                 m = 4;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
             case "Abril":
-                premax = 31;
-                mesmax = 30;
                 mes_text.text = "Mayo";
+                premax = 30;
+                mesmax = 31;
                 m = 5;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
             case "Mayo":
-                premax = 30;
-                mesmax = 31;
                 mes_text.text = "Junio";
+                premax = 31;
+                mesmax = 30;
                 m = 6;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
             case "Junio":
-                premax = 31;
-                mesmax = 30;
                 mes_text.text = "Julio";
+                premax = 30;
+                mesmax = 31;
                 m = 7;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
             case "Julio":
-                premax = 30;
-                mesmax = 31;
                 mes_text.text = "Agosto";
+                premax = 31;
+                mesmax = 31;
                 m = 8;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
             case "Agosto":
-                premax = 31;
-                mesmax = 31;
                 mes_text.text = "Septiembre";
+                premax = 31;
+                mesmax = 30;
                 m = 9;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
             case "Septiembre":
-                premax = 31;
-                mesmax = 30;
                 mes_text.text = "Octubre";
+                premax = 30;
+                mesmax = 31;
                 m = 10;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
             case "Octubre":
-                premax = 30;
-                mesmax = 31;
                 mes_text.text = "Noviembre";
+                premax = 31;
+                mesmax = 30;
                 m = 11;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
             case "Noviembre":
-                premax = 31;
-                mesmax = 30;
                 mes_text.text = "Diciembre";
+                premax = 30;
+                mesmax = 31;
                 m = 12;
                 StartCoroutine("calcular_primer_dia", año);
                 StartCoroutine("llenar_dias");
                 break;
             case "Diciembre":
-                premax = 30;
+                premax = 31;
                 mesmax = 31;
                 mes_text.text = "Enero";
                 m = 1;
@@ -217,6 +217,9 @@ public class calendar_func : MonoBehaviour
         {
             case "Enero":
                 mes_text.text = "Diciembre";
+                premax = 31;
+                mesmax = 31;
+                m = 12;
                 if (año < System.DateTime.Now.Year)
                 {
                     año = año - 1;
@@ -227,39 +230,96 @@ public class calendar_func : MonoBehaviour
                     año = año - 1;
                     año_text.text = "" + año;
                 }
+                StartCoroutine("calcular_primer_dia", año);
+                StartCoroutine("llenar_dias");
                 break;
             case "Febrero":
                 mes_text.text = "Enero";
+                premax = 31;
+                mesmax = 31;
+                m = 1;
+                StartCoroutine("calcular_primer_dia", año);
+                StartCoroutine("llenar_dias");
                 break;
             case "Marzo":
                 mes_text.text = "Febrero";
+                premax = 31;
+                mesmax = 28;
+                m = 2;
+                StartCoroutine("calcular_primer_dia", año);
+                StartCoroutine("llenar_dias");
                 break;
             case "Abril":
                 mes_text.text = "Marzo";
+                premax = 28;
+                mesmax = 31;
+                m = 3;
+                StartCoroutine("calcular_primer_dia", año);
+                StartCoroutine("llenar_dias");
                 break;
             case "Mayo":
                 mes_text.text = "Abril";
+                premax = 31;
+                mesmax = 30;
+                m = 4;
+                StartCoroutine("calcular_primer_dia", año);
+                StartCoroutine("llenar_dias");
                 break;
             case "Junio":
                 mes_text.text = "Mayo";
+                premax = 30;
+                mesmax = 31;
+                m = 5;
+                StartCoroutine("calcular_primer_dia", año);
+                StartCoroutine("llenar_dias");
                 break;
             case "Julio":
                 mes_text.text = "Junio";
+                premax = 31;
+                mesmax = 30;
+                m = 6;
+                StartCoroutine("calcular_primer_dia", año);
+                StartCoroutine("llenar_dias");
                 break;
             case "Agosto":
                 mes_text.text = "Julio";
+                premax = 30;
+                mesmax = 31;
+                m = 7;
+                StartCoroutine("calcular_primer_dia", año);
+                StartCoroutine("llenar_dias");
                 break;
             case "Septiembre":
                 mes_text.text = "Agosto";
+                premax = 31;
+                mesmax = 31;
+                m = 8;
+                StartCoroutine("calcular_primer_dia", año);
+                StartCoroutine("llenar_dias");
                 break;
             case "Octubre":
                 mes_text.text = "Septiembre";
+                premax = 31;
+                mesmax = 30;
+                m = 9;
+                StartCoroutine("calcular_primer_dia", año);
+                StartCoroutine("llenar_dias");
                 break;
             case "Noviembre":
                 mes_text.text = "Octubre";
+                premax = 30;
+                mesmax = 31;
+                m = 10;
+                StartCoroutine("calcular_primer_dia", año);
+                StartCoroutine("llenar_dias");
                 break;
             case "Diciembre":
                 mes_text.text = "Noviembre";
+                premax = 31;
+                mesmax = 30;
+                m = 11;
+                StartCoroutine("calcular_primer_dia", año);
+                StartCoroutine("llenar_dias");
                 break;
         }
     }
@@ -308,6 +368,13 @@ public class calendar_func : MonoBehaviour
         switch (diasemanaint)
         {
             case 0:
+                dia[0].día.image.color = Color.white;
+                dia[1].día.image.color = Color.white;
+                dia[2].día.image.color = Color.white;
+                dia[3].día.image.color = Color.white;
+                dia[4].día.image.color = Color.white;
+                dia[5].día.image.color = Color.white;
+                dia[6].día.image.color = Color.white;
                 Element = 0;
                 diasemanaint2 = diasemanaint - 1;
                 diamesint = premax - diasemanaint2;
@@ -319,8 +386,8 @@ public class calendar_func : MonoBehaviour
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                mesmax = mesmax + 2;
-                while (Element < mesmax)
+                mesmax = mesmax + 1;
+                while (diamesint < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     Element = Element + 1;
@@ -328,6 +395,13 @@ public class calendar_func : MonoBehaviour
                 }
                 break;
             case 1:
+                dia[0].día.image.color = Color.white;
+                dia[1].día.image.color = Color.white;
+                dia[2].día.image.color = Color.white;
+                dia[3].día.image.color = Color.white;
+                dia[4].día.image.color = Color.white;
+                dia[5].día.image.color = Color.white;
+                dia[6].día.image.color = Color.white;
                 Element = 0;
                 diasemanaint2 = diasemanaint - 1;
                 diamesint = premax - diasemanaint2;
@@ -339,8 +413,8 @@ public class calendar_func : MonoBehaviour
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                mesmax = mesmax + 2;
-                while (Element < mesmax)
+                mesmax = mesmax + 1;
+                while (diamesint < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     Element = Element + 1;
@@ -348,6 +422,13 @@ public class calendar_func : MonoBehaviour
                 }
                 break;
             case 2:
+                dia[0].día.image.color = Color.white;
+                dia[1].día.image.color = Color.white;
+                dia[2].día.image.color = Color.white;
+                dia[3].día.image.color = Color.white;
+                dia[4].día.image.color = Color.white;
+                dia[5].día.image.color = Color.white;
+                dia[6].día.image.color = Color.white;
                 Element = 0;
                 diasemanaint2 = diasemanaint - 1;
                 diamesint = premax - diasemanaint2;
@@ -359,8 +440,8 @@ public class calendar_func : MonoBehaviour
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                mesmax = mesmax + 2;
-                while (Element < mesmax)
+                mesmax = mesmax + 1;
+                while (diamesint < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     Element = Element + 1;
@@ -368,6 +449,13 @@ public class calendar_func : MonoBehaviour
                 }
                 break;
             case 3:
+                dia[0].día.image.color = Color.white;
+                dia[1].día.image.color = Color.white;
+                dia[2].día.image.color = Color.white;
+                dia[3].día.image.color = Color.white;
+                dia[4].día.image.color = Color.white;
+                dia[5].día.image.color = Color.white;
+                dia[6].día.image.color = Color.white;
                 Element = 0;
                 diasemanaint2 = diasemanaint - 1;
                 diamesint = premax - diasemanaint2;
@@ -379,8 +467,8 @@ public class calendar_func : MonoBehaviour
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                mesmax = mesmax + 2;
-                while (Element < mesmax)
+                mesmax = mesmax + 1;
+                while (diamesint < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     Element = Element + 1;
@@ -388,6 +476,13 @@ public class calendar_func : MonoBehaviour
                 }
                 break;
             case 4:
+                dia[0].día.image.color = Color.white;
+                dia[1].día.image.color = Color.white;
+                dia[2].día.image.color = Color.white;
+                dia[3].día.image.color = Color.white;
+                dia[4].día.image.color = Color.white;
+                dia[5].día.image.color = Color.white;
+                dia[6].día.image.color = Color.white;
                 Element = 0;
                 diasemanaint2 = diasemanaint - 1;
                 diamesint = premax - diasemanaint2;
@@ -399,8 +494,8 @@ public class calendar_func : MonoBehaviour
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                mesmax = mesmax + 2;
-                while (Element < mesmax)
+                mesmax = mesmax + 1;
+                while (diamesint < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     Element = Element + 1;
@@ -408,6 +503,13 @@ public class calendar_func : MonoBehaviour
                 }
                 break;
             case 5:
+                dia[0].día.image.color = Color.white;
+                dia[1].día.image.color = Color.white;
+                dia[2].día.image.color = Color.white;
+                dia[3].día.image.color = Color.white;
+                dia[4].día.image.color = Color.white;
+                dia[5].día.image.color = Color.white;
+                dia[6].día.image.color = Color.white;
                 Element = 0;
                 diasemanaint2 = diasemanaint - 1;
                 diamesint = premax - diasemanaint2;
@@ -419,8 +521,8 @@ public class calendar_func : MonoBehaviour
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                mesmax = mesmax + 2;
-                while (Element < mesmax)
+                mesmax = mesmax + 1;
+                while (diamesint < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     Element = Element + 1;
@@ -428,6 +530,13 @@ public class calendar_func : MonoBehaviour
                 }
                 break;
             case 6:
+                dia[0].día.image.color = Color.white;
+                dia[1].día.image.color = Color.white;
+                dia[2].día.image.color = Color.white;
+                dia[3].día.image.color = Color.white;
+                dia[4].día.image.color = Color.white;
+                dia[5].día.image.color = Color.white;
+                dia[6].día.image.color = Color.white;
                 Element = 0;
                 diasemanaint2 = diasemanaint - 1;
                 diamesint = premax - diasemanaint2;
@@ -439,8 +548,8 @@ public class calendar_func : MonoBehaviour
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                mesmax = mesmax + 2;
-                while (Element < mesmax)
+                mesmax = mesmax + 1;
+                while (diamesint < mesmax)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     Element = Element + 1;
