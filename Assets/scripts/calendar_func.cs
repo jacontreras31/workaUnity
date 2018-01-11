@@ -7,11 +7,11 @@ using UnityEditor;
 public class calendar_func : MonoBehaviour
 {
 
-    public Text mes_text, año_text, holo_text;
-    string diasemana;
+    public Text mes_text, año_text, fecha_selec_text;
+    string diasemana, diadelmes_string;
     int año, diasemanaint, diasemanaint2, Element, diamesint, mes_tipo, d, m, a, c, premax, mesmax, 
-        cuartaparte, bisiesto, bisiesto2;
-    public Button boton_holo;
+        cuartaparte, bisiesto, bisiesto2, Diadelmes,diazul;
+    public Button hoy_izquierda, hoy_derecha;
     public Dias[] dia;
     public Image Pendientes_del_dia;
     public Button Cerrar_pendiente;
@@ -20,10 +20,12 @@ public class calendar_func : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Diadelmes = System.DateTime.Now.Day;
         m = System.DateTime.Now.Month;
         año = System.DateTime.Now.Year;
         StartCoroutine("calcular_primer_dia", System.DateTime.Now.Year);
         mes_text.text = System.DateTime.Now.ToString("MM");
+        diazul = System.DateTime.Now.Month;
         año_text.text = System.DateTime.Now.ToString("yyyy");
         año = System.DateTime.Now.Year;
         switch (mes_text.text)
@@ -110,11 +112,18 @@ public class calendar_func : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(año == System.DateTime.Now.Year && mes_text.text == System.DateTime.Now.ToString("MM"))
+        {
+         hoy_izquierda.gameObject.SetActive(false);
+         hoy_derecha.gameObject.SetActive(false);
+        }
     }
 
     //Funciones de los botones
     public void Boton_derecha()
     {
+        hoy_izquierda.gameObject.SetActive(true);
+        diazul = diazul + 1;
         switch (mes_text.text)
         {
             case "Enero":
@@ -241,6 +250,8 @@ public class calendar_func : MonoBehaviour
     }
     public void Boton_Izquierda()
     {
+        hoy_derecha.gameObject.SetActive(true);
+        diazul = diazul - 1;
         switch (mes_text.text)
         {
             case "Enero":
@@ -366,11 +377,114 @@ public class calendar_func : MonoBehaviour
         }
     }
 
+    //botones "hoy"
+    public void hoy_izquierda_fun ()
+    {
+        hoy_izquierda.gameObject.SetActive(false);
+        StartCoroutine("llevar_a_hoy");
+    }
+    public void hoy_derecha_fun()
+    {
+        hoy_derecha.gameObject.SetActive(false);
+        StartCoroutine("llevar_a_hoy");
+    }
+
+    public void llevar_a_hoy() { 
+    Diadelmes = System.DateTime.Now.Day;
+        m = System.DateTime.Now.Month;
+        año = System.DateTime.Now.Year;
+        StartCoroutine("calcular_primer_dia", System.DateTime.Now.Year);
+    mes_text.text = System.DateTime.Now.ToString("MM");
+        diazul = System.DateTime.Now.Month;
+        año_text.text = System.DateTime.Now.ToString("yyyy");
+        año = System.DateTime.Now.Year;
+        switch (mes_text.text)
+        {
+            case "01":
+                premax = 31;
+                mesmax = 31;
+                mes_text.text = "Enero";
+                break;
+            case "02":
+                premax = 31;
+                mesmax = 28;
+                mes_text.text = "Febrero";
+                bisiesto = año % 400;
+                if (bisiesto == 0)
+                {
+                    mesmax = 29;
+                }
+                else
+                {
+                    bisiesto = año % 4;
+                    bisiesto2 = año % 100;
+                    if (bisiesto == 0 && bisiesto2 != 0)
+                    {
+                        mesmax = 29;
+                    }
+                }
+                break;
+            case "03":
+                premax = 28;
+                mesmax = 31;
+                mes_text.text = "Marzo";
+                break;
+            case "04":
+                premax = 31;
+                mesmax = 30;
+                mes_text.text = "Abril";
+                break;
+            case "05":
+                premax = 30;
+                mesmax = 31;
+                mes_text.text = "Mayo";
+                break;
+            case "06":
+                premax = 31;
+                mesmax = 30;
+                mes_text.text = "Junio";
+                break;
+            case "07":
+                premax = 30;
+                mesmax = 31;
+                mes_text.text = "Julio";
+                break;
+            case "08":
+                premax = 31;
+                mesmax = 31;
+                mes_text.text = "Agosto";
+                break;
+            case "09":
+                premax = 31;
+                mesmax = 30;
+                mes_text.text = "Septiembre";
+                break;
+            case "10":
+                premax = 30;
+                mesmax = 31;
+                mes_text.text = "Octubre";
+                break;
+            case "11":
+                premax = 31;
+                mesmax = 30;
+                mes_text.text = "Noviembre";
+                break;
+            case "12":
+                premax = 30;
+                mesmax = 31;
+                mes_text.text = "Diciembre";
+                break;
+        }
+        StartCoroutine("llenar_dias");
+    }
+
     //abrir-cerrar popup "pendientes"
     public void Boton_dia_pendientes()
     {
         Pendientes_del_dia.gameObject.SetActive(true);
         Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada"+ mes_text.text + "/" + año_text.text;
+        
     }
     public void Cierra_pendientes()
     {
@@ -425,9 +539,17 @@ public class calendar_func : MonoBehaviour
                 mesmax = mesmax + 1;
                 while (diamesint < mesmax)
                 {
+                    
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.white;
                     dia[Element].día.interactable = true;
+                    if (año == System.DateTime.Now.Year && diazul == System.DateTime.Now.Month)
+                    {
+                        if (diamesint == System.DateTime.Now.Day)
+                        {
+                            dia[Element].día.image.color = Color.blue;
+                        }
+                    }
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
@@ -460,6 +582,13 @@ public class calendar_func : MonoBehaviour
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.white;
                     dia[Element].día.interactable = true;
+                    if (año == System.DateTime.Now.Year && diazul == System.DateTime.Now.Month)
+                    {
+                        if (diamesint == System.DateTime.Now.Day)
+                        {
+                            dia[Element].día.image.color = Color.blue;
+                        }
+                    }
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
@@ -492,6 +621,13 @@ public class calendar_func : MonoBehaviour
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.white;
                     dia[Element].día.interactable = true;
+                    if (año == System.DateTime.Now.Year && diazul == System.DateTime.Now.Month)
+                    {
+                        if (diamesint == System.DateTime.Now.Day)
+                        {
+                            dia[Element].día.image.color = Color.blue;
+                        }
+                    }
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
@@ -524,6 +660,13 @@ public class calendar_func : MonoBehaviour
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.white;
                     dia[Element].día.interactable = true;
+                    if (año == System.DateTime.Now.Year && diazul == System.DateTime.Now.Month)
+                    {
+                        if (diamesint == System.DateTime.Now.Day)
+                        {
+                            dia[Element].día.image.color = Color.blue;
+                        }
+                    }
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
@@ -556,6 +699,13 @@ public class calendar_func : MonoBehaviour
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.white;
                     dia[Element].día.interactable = true;
+                    if (año == System.DateTime.Now.Year && diazul == System.DateTime.Now.Month)
+                    {
+                        if (diamesint == System.DateTime.Now.Day)
+                        {
+                            dia[Element].día.image.color = Color.blue;
+                        }
+                    }
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
@@ -588,6 +738,13 @@ public class calendar_func : MonoBehaviour
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.white;
                     dia[Element].día.interactable = true;
+                    if (año == System.DateTime.Now.Year && diazul == System.DateTime.Now.Month)
+                    {
+                        if (diamesint == System.DateTime.Now.Day)
+                        {
+                            dia[Element].día.image.color = Color.blue;
+                        }
+                    }
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
@@ -620,6 +777,13 @@ public class calendar_func : MonoBehaviour
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.white;
                     dia[Element].día.interactable = true;
+                    if (año == System.DateTime.Now.Year && diazul == System.DateTime.Now.Month)
+                    {
+                        if (diamesint == System.DateTime.Now.Day)
+                        {
+                            dia[Element].día.image.color = Color.blue;
+                        }
+                    }
                     Element = Element + 1;
                     diamesint = diamesint + 1;
                 }
