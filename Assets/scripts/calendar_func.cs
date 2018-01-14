@@ -10,7 +10,7 @@ public class calendar_func : MonoBehaviour
     public Text mes_text, año_text, fecha_selec_text;
     string diasemana, diadelmes_string;
     int año, diasemanaint, diasemanaint2, Element, diamesint, mes_tipo, d, m, a, c, premax, mesmax, 
-        cuartaparte, bisiesto, bisiesto2, Diadelmes,diazul;
+        cuartaparte, bisiesto, bisiesto2, Diadelmes,diazul, mupdate;
     public Button hoy_izquierda, hoy_derecha;
     public Dias[] dia;
     public Image Pendientes_del_dia;
@@ -22,6 +22,7 @@ public class calendar_func : MonoBehaviour
     {
         Diadelmes = System.DateTime.Now.Day;
         m = System.DateTime.Now.Month;
+        mupdate = System.DateTime.Now.Month;
         año = System.DateTime.Now.Year;
         StartCoroutine("calcular_primer_dia", System.DateTime.Now.Year);
         mes_text.text = System.DateTime.Now.ToString("MM");
@@ -112,7 +113,7 @@ public class calendar_func : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(año == System.DateTime.Now.Year && mes_text.text == System.DateTime.Now.ToString("MM"))
+        if(año == System.DateTime.Now.Year && mupdate == System.DateTime.Now.Month)
         {
          hoy_izquierda.gameObject.SetActive(false);
          hoy_derecha.gameObject.SetActive(false);
@@ -123,6 +124,7 @@ public class calendar_func : MonoBehaviour
     public void Boton_derecha()
     {
         hoy_izquierda.gameObject.SetActive(true);
+        mupdate = mupdate + 1;
         diazul = diazul + 1;
         switch (mes_text.text)
         {
@@ -251,6 +253,7 @@ public class calendar_func : MonoBehaviour
     public void Boton_Izquierda()
     {
         hoy_derecha.gameObject.SetActive(true);
+        mupdate = mupdate - 1;
         diazul = diazul - 1;
         switch (mes_text.text)
         {
@@ -479,13 +482,223 @@ public class calendar_func : MonoBehaviour
     }
 
     //abrir-cerrar popup "pendientes"
-    public void Boton_dia_pendientes()
+    public void Boton_dia_pendientes_0()
     {
         Pendientes_del_dia.gameObject.SetActive(true);
         Cerrar_pendiente.gameObject.SetActive(true);
-        fecha_selec_text.text = "Fecha seleccionada"+ mes_text.text + "/" + año_text.text;
-        
+        fecha_selec_text.text = "Fecha seleccionada" + dia[0].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
     }
+    public void Boton_dia_pendientes_1()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[1].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;   
+    }
+    public void Boton_dia_pendientes_2()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[2].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_3()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[3].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;   
+    }
+    public void Boton_dia_pendientes_4()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[4].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_5()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[5].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_6()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[6].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_7()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[7].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_8()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[8].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_9()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[9].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_10()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[10].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_11()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[11].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_12()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[12].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_13()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[13].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_14()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[14].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_15()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[15].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_16()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[16].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_17()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[17].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_18()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[18].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_19()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[19].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_20()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[20].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_21()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[21].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_22()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[22].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_23()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[23].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_24()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[24].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_25()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[25].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_26()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[26].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_27()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[27].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_28()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[28].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_29()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[29].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_30()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[30].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_31()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[31].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_32()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[32].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_33()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[33].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_34()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[34].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+    public void Boton_dia_pendientes_35()
+    {
+        Pendientes_del_dia.gameObject.SetActive(true);
+        Cerrar_pendiente.gameObject.SetActive(true);
+        fecha_selec_text.text = "Fecha seleccionada" + dia[35].día.GetComponentInChildren<Text>().text + "/" + mes_text.text + "/" + año_text.text;
+    }
+
     public void Cierra_pendientes()
     {
         Pendientes_del_dia.gameObject.SetActive(false);

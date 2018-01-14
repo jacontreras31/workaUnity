@@ -93,7 +93,8 @@ public class menu_script : MonoBehaviour {
         }
     }
 
-    public void botonsito ()
+    //Este es el boton que Saca la barra 
+    public void Sidebutton_fun ()
     {
 
         imagenpos = imagen.transform.position;
@@ -104,7 +105,8 @@ public class menu_script : MonoBehaviour {
 
 
     }
-    public void shadef()
+    //este es cuando presionas la sobra que aparece junto a la barra
+    public void shade_fun()
     {
 
         imagenpos = imagen.transform.position;
