@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
 
 public class calendar_func : MonoBehaviour
 {
-
     public Text mes_text, año_text, fecha_selec_text;
     string diasemana, diadelmes_string;
     int año, diasemanaint, diasemanaint2, Element, diamesint, mes_tipo, d, m, a, c, premax, mesmax, 
@@ -117,6 +115,14 @@ public class calendar_func : MonoBehaviour
         {
          hoy_izquierda.gameObject.SetActive(false);
          hoy_derecha.gameObject.SetActive(false);
+        }
+        if (mupdate > System.DateTime.Now.Month)
+        {
+         hoy_derecha.gameObject.SetActive(false);
+        }
+        if (mupdate < System.DateTime.Now.Month)
+        {
+            hoy_izquierda.gameObject.SetActive(false);
         }
     }
 
