@@ -389,11 +389,13 @@ public class calendar_func : MonoBehaviour
     //botones "hoy"
     public void hoy_izquierda_fun ()
     {
+        mupdate = System.DateTime.Now.Month;
         hoy_izquierda.gameObject.SetActive(false);
         StartCoroutine("llevar_a_hoy");
     }
     public void hoy_derecha_fun()
     {
+        mupdate = System.DateTime.Now.Month;
         hoy_derecha.gameObject.SetActive(false);
         StartCoroutine("llevar_a_hoy");
     }
