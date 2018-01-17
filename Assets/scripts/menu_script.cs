@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class menu_script : MonoBehaviour {
 
     Vector2 mousepos1, mousepos2, imagenpos, botonpos;
+    public Animator imagenbarra;
     public Image imagen;
     public bool triggermouse, triggermouse2 , barrafuera;
     public Button sidebutton, shade;
@@ -40,10 +41,9 @@ public class menu_script : MonoBehaviour {
                 if (mousepos2.x > 130)
                 {
                     Debug.Log("sliding");
-                    imagenpos = imagen.transform.position;
-                    imagenpos.x += 4.9f;
-                    imagen.transform.position = imagenpos;
-                    shade.gameObject.SetActive(true);
+                    imagenbarra.SetBool("slide out", false);
+                    imagenbarra.SetBool("slide in", true);
+
                     barrafuera = true;
                     triggermouse = false;
 
@@ -77,10 +77,9 @@ public class menu_script : MonoBehaviour {
                 if (mousepos2.x < 130)
                 {
                     Debug.Log("sliding");
-                    imagenpos = imagen.transform.position;
-                    imagenpos.x -= 4.9f;
-                    imagen.transform.position = imagenpos;
-                    shade.gameObject.SetActive(false);
+                    imagenbarra.SetBool("slide in", false);
+                    imagenbarra.SetBool("slide out", true);
+
                     barrafuera = false;
                     triggermouse2 = false;
 
@@ -96,23 +95,18 @@ public class menu_script : MonoBehaviour {
     //Este es el boton que Saca la barra 
     public void Sidebutton_fun ()
     {
-
-        imagenpos = imagen.transform.position;
-        imagenpos.x += 4.9f;
-        imagen.transform.position = imagenpos;
-        shade.gameObject.SetActive(true);
+        imagenbarra.SetBool("slide out", false);
+        imagenbarra.SetBool("slide in", true);
         barrafuera = true;
 
 
     }
-    //este es cuando presionas la sobra que aparece junto a la barra
+    //este es cuando presionas la sombra que aparece junto a la barra
     public void shade_fun()
     {
-
-        imagenpos = imagen.transform.position;
-        imagenpos.x -= 4.9f;
-        imagen.transform.position = imagenpos;
-        shade.gameObject.SetActive(false);
+        imagenbarra.SetBool("slide in", false);
+        imagenbarra.SetBool("slide out", true);
         barrafuera = false;
     }
+
 }

@@ -13,6 +13,7 @@ public class calendar_func : MonoBehaviour
     public Dias[] dia;
     public Image Pendientes_del_dia;
     public Button Cerrar_pendiente;
+    public bool slide_in, slide_out;
 
 
     // Use this for initialization
@@ -775,7 +776,7 @@ public class calendar_func : MonoBehaviour
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                while (Element < 40)
+                while (Element < 42)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.grey;
@@ -814,7 +815,7 @@ public class calendar_func : MonoBehaviour
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                while (Element < 40)
+                while (Element < 42)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.grey;
@@ -853,7 +854,7 @@ public class calendar_func : MonoBehaviour
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                while (Element < 40)
+                while (Element < 42)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.grey;
@@ -892,7 +893,7 @@ public class calendar_func : MonoBehaviour
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                while (Element < 40)
+                while (Element < 42)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.grey;
@@ -931,7 +932,7 @@ public class calendar_func : MonoBehaviour
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                while (Element < 40)
+                while (Element < 42)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.grey;
@@ -970,7 +971,7 @@ public class calendar_func : MonoBehaviour
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                while (Element < 40)
+                while (Element < 42)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.grey;
@@ -1009,7 +1010,7 @@ public class calendar_func : MonoBehaviour
                     diamesint = diamesint + 1;
                 }
                 diamesint = 1;
-                while (Element < 40)
+                while (Element < 42)
                 {
                     dia[Element].día.GetComponentInChildren<Text>().text = "" + diamesint;
                     dia[Element].día.image.color = Color.grey;
